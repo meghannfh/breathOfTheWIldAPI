@@ -29,34 +29,76 @@ html {
     position: relative;
 }
 body {
-    height: 100%;
+    max-height: 100%;
     position: relative;
 }
-/*
-==========================================
-Layout
-==========================================
-*/
 /*
 ==========================================
 Header
 ==========================================
 */
+/* PAGE TITLE */
+header {
+    color: white;
+    font-size: 2rem;
+    line-height: 2.4rem;
+}
+/* THE WORD ENCYCLOPEDIA */
+.encyclopedia {
+    font-size: 4rem;
+    display: block;
+}
+/* THE WORD HYRULE */
+.hyrule {
+    font-size: 6rem;
+}
 /*
 ==========================================
 Main
 ==========================================
 */
-/*
-==========================================
-Body
-==========================================
-*/
-/*
-==========================================
-Body
-==========================================
-*/
+/* PAGE MAIN BACKGROUND */
+body {
+    background-image: url(/assets/bg.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+/* CONTAINER FOR THE GRIDS TO MAKE IMAGE BOX AND TEXT BOX */
+.container {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    gap: 0 10%;
+}
+
+
+/* OUTER BORDER OF IMAGE BOX */
+img {
+    max-width: 100%;
+}
+.imageOuter {
+    border: 5px solid rgba(0, 0, 0, .8);
+}
+/* INNER BORDER OF IMAGE BOX */
+.imageInner {
+    border: 3px solid white;
+}
+
+
+
+
+/* TEXT BOXES */
+.informationOuter {
+    border: 5px solid rgba(0, 0, 0, .8);
+}
+.informationInner {
+    border: 3px solid transparent;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 50%, transparent);
+    height: 100%;
+}
+.infoBody {
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+}
 /*
 ==========================================
 Footer
