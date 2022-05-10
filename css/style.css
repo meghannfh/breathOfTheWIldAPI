@@ -65,22 +65,33 @@ body {
 }
 /* CONTAINER FOR THE GRIDS TO MAKE IMAGE BOX AND TEXT BOX */
 .container {
+    /* border: 1px solid red; */
     display: grid;
-    grid-template-columns: 45% 45%;
-    gap: 0 10%;
+    grid-template-columns: 1fr 2fr;
+    justify-content: center;
+    gap: 0;
+    margin: 5vh 5vw;
+    height: 60vh;
+    padding: 5rem;
+    background: rgba(91, 134, 63, .8);
+    border: 3px solid #718d93;
 }
 
-
-/* OUTER BORDER OF IMAGE BOX */
+/* IMAGE SIZING */
 img {
     max-width: 100%;
+    border: 2px solid #8FC9F0;
 }
+/* OUTER BORDER OF IMAGE BOX */
 .imageOuter {
-    border: 5px solid rgba(0, 0, 0, .8);
+    max-height: 280px;
+    max-width: 280px;
 }
 /* INNER BORDER OF IMAGE BOX */
 .imageInner {
-    border: 3px solid white;
+    border: 2px solid black;
+    max-height: 280px;
+    max-width: 280px;
 }
 
 
@@ -88,16 +99,27 @@ img {
 
 /* TEXT BOXES */
 .informationOuter {
-    border: 5px solid rgba(0, 0, 0, .8);
+    color: white;
+    text-align: center;
 }
 .informationInner {
     border: 3px solid transparent;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 50%, transparent);
     height: 100%;
+}
+.infoTitle {
+    padding-top: 1rem;
+    font-size: 2rem;
+}
+.descriptionDivider {
+    margin: 1rem 0;
+    font-size: 1.7rem;
 }
 .infoBody {
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
+    padding: 0 3rem 1rem 3rem;
+    text-align: start;
+    font-size: 1.4rem;
 }
 /*
 ==========================================
