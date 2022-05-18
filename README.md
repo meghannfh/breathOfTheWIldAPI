@@ -3,7 +3,7 @@ A collaborative encyclopedia about the world of Hyrule with Meg [https://github.
 
 **Link to project:** [INSERT LIVE LINK WHEN COMPLETED]
 
-![alt tag][(https://imgur.com/Iiii9m9)]
+![alt tag](https://imgur.com/Iiii9m9)
 
 ## How It's Made:
 
