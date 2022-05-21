@@ -3,12 +3,12 @@
 Clearfix
 ==========================================
 */
-.group:before,
-.group:after {
+.group::before,
+.group::after {
     content: "";
     display: table;
 }
-.group:after {
+.group::after {
     clear: both;
 }
 .group {
@@ -63,15 +63,27 @@ body {
     background-size:cover;
     background-repeat: no-repeat;
 }
+/* TITLE AND MAIN ICON CONTAINER */
+.headerContain{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.inputContainer{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+}
+
 /* CONTAINER FOR THE GRIDS TO MAKE IMAGE BOX AND TEXT BOX */
 .container {
-    /* border: 1px solid red; */
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    border: 1px solid red;
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     gap: 0;
     margin: 5vh 5vw;
-    height: 60vh;
+    /* height: 60vh; */
     padding: 5rem;
     background: rgba(91, 134, 63, .8);
     border: 3px solid #718d93;
@@ -79,26 +91,29 @@ body {
 
 /* IMAGE SIZING */
 img {
-    max-width: 100%;
+    height: 100%;
+    width: 100%;
     border: 2px solid #8FC9F0;
 }
 /* OUTER BORDER OF IMAGE BOX */
 .imageOuter {
-    max-height: 280px;
-    max-width: 280px;
+    max-height: 100px;
+    max-width: 100px;
+    border: 2px solid black;
 }
 /* INNER BORDER OF IMAGE BOX */
-.imageInner {
+/* .imageInner {
     border: 2px solid black;
     max-height: 280px;
     max-width: 280px;
-}
+} */
 
 
 
 
 /* TEXT BOXES */
 .informationOuter {
+    border: 2px solid red;
     color: white;
     text-align: center;
 }
@@ -121,6 +136,15 @@ img {
     text-align: start;
     font-size: 1.4rem;
 }
+/*
+===================================
+Show info container
+===================================
+*/
+.show{
+    display: grid;
+}
+
 /*
 ==========================================
 Footer
