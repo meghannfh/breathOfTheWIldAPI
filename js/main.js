@@ -1,5 +1,3 @@
-//Example fetch
-// document.querySelector('button').addEventListener('click', getFetch)
 const itemCreatureName = document.getElementById('itemCreatureName')
 const itemCreatureDescription = document.getElementById('itemCreatureDescription')
 const infoContainer = document.getElementById('infoContainer')
