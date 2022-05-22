@@ -78,7 +78,7 @@ body {
 /* CONTAINER FOR THE GRIDS TO MAKE IMAGE BOX AND TEXT BOX */
 .container {
     border: 1px solid red;
-    display: none;
+    display:none;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     gap: 0;
@@ -135,6 +135,15 @@ img {
     padding: 0 3rem 1rem 3rem;
     text-align: start;
     font-size: 1.4rem;
+}
+
+.rightarrow{
+    font-size: 4em;
+    font-weight: 500;
+}
+
+.rightarrow:hover{
+    cursor: pointer;
 }
 /*
 ===================================
