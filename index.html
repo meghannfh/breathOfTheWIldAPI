@@ -6,6 +6,7 @@
 
         <link rel="stylesheet" href="/css/normalizeReset.css">
         <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
       <title>Encyclopedia of Hyrule</title>
     </head>
     
@@ -21,7 +22,7 @@
 
             <section class="imageOuter">
                 <section class="imageInner">
-                    <img src="/assets/icon.png">
+                    <img class="linkLogo" src="/assets/icon.png">
                 </section>
             </section>    
         </header>
@@ -34,15 +35,16 @@
             <section class="inputContainer">
             <!-- INPUT TO SEARCH -->
                 <input type="text">
-                <h2 class="rightarrow arrow" id="rightArrow">Right ARROW</h2>
-                <h2 class="leftarrow arrow">Left ARROW</h2>
                 <button>click me!</button>
             </section>
 
             <section class="container" id="infoContainer">
+                <div class="imgContainer">
+                    <i class="uil uil-angle-left-b leftarrow arrow" id="leftArrow"></i>
+                    <img id="image" class="searchedImg" src="" alt="">
+                    <i class="uil uil-angle-right-b rightarrow arrow" id="rightArrow"></i>
+                </div>
                     
-                    <img id="image" src="" alt="">
-
                 <!-- TEXT BOXES FOR DESCRIPTION -->
                 <section class="informationOuter">
 

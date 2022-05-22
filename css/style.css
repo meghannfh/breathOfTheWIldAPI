@@ -77,24 +77,55 @@ body {
 
 /* CONTAINER FOR THE GRIDS TO MAKE IMAGE BOX AND TEXT BOX */
 .container {
-    border: 1px solid red;
-    display:none;
+    width: 90vw;
+    height: auto;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     gap: 0;
-    margin: 5vh 5vw;
+    margin: 0 auto;;
     /* height: 60vh; */
-    padding: 5rem;
     background: rgba(91, 134, 63, .8);
     border: 3px solid #718d93;
 }
 
-/* IMAGE SIZING */
-img {
-    height: 100%;
-    width: 100%;
+/* IMAGE SIZING & CONTAINER */
+.flex{
+    display: flex;
+}
+
+.imgContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+.searchedImg {
+    max-width: fit-content;
     border: 2px solid #8FC9F0;
 }
+
+.linkLogo{
+    width: 100%;
+    height: 100%;
+}
+
+/* ARROWS */
+.rightarrow,
+.leftarrow{
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    font-size: 4em;
+    font-weight: 500;
+}
+
+.rightarrow:hover,
+.leftarrow:hover {
+    cursor: pointer;
+}
+
+
 /* OUTER BORDER OF IMAGE BOX */
 .imageOuter {
     max-height: 100px;
@@ -113,7 +144,6 @@ img {
 
 /* TEXT BOXES */
 .informationOuter {
-    border: 2px solid red;
     color: white;
     text-align: center;
 }
@@ -137,14 +167,6 @@ img {
     font-size: 1.4rem;
 }
 
-.rightarrow{
-    font-size: 4em;
-    font-weight: 500;
-}
-
-.rightarrow:hover{
-    cursor: pointer;
-}
 /*
 ===================================
 Show info container
@@ -159,3 +181,17 @@ Show info container
 Footer
 ==========================================
 */
+
+
+/*
+==========================================
+Media Queries
+==========================================
+*/
+
+@media screen and (max-width: 768px) {
+    .container{
+        width: 90vw;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
