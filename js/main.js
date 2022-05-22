@@ -1,46 +1,54 @@
 const itemCreatureName = document.getElementById('itemCreatureName')
 const itemCreatureDescription = document.getElementById('itemCreatureDescription')
 const infoContainer = document.getElementById('infoContainer')
+const imgContainer = document.getElementById('image')
 const rightArrow = document.getElementById('rightArrow')
 const leftArrow = document.getElementById('leftArrow')
 const arrows = document.querySelectorAll('.arrow')
+let categoryType;
+let backOrForward;
+let count = 0;
 // let entry = document.querySelector('input').value
 
+const onClick = (event) => {
+  console.log(event.target.id);
+  backOrForward = event.target.id
+  return backOrForward
+}
+window.addEventListener('click', onClick);
 
+arrows.forEach((arrow)=>{
+  arrow.addEventListener('click', getFetch)})
 
-rightArrow.addEventListener('click', getFetch)
-//on click of either arrow we need to fetch the info
-//first righarrow click will fetch the value starting at index [0]
-//print image to image placeholder
-//print name and description and stats to right side box
-//index++ on next rightarrow click (ex, will show value at [1] then [2] and so on)
-//first leftarrow click will fetch value
-
+//Idk how to get the left caret to work so that 
+//it iterates backwards. right now if you click
+//either one it goes forward
 
 const CREATURES_URL = 'https://botw-compendium.herokuapp.com/api/v2'
   // const url = `https://botw-compendium.herokuapp.com/api/v2/entry/${entry}`;
 
+
 function getFetch(){
   fetch(CREATURES_URL)
-  .then(res =>res.json()) // parse response as JSON
-  .then(data => {
-    // console.log(data)
-    let creaturesArrayNonFood = data.data.creatures.non_food
-    // console.log(creaturesArrayNonFood)
-    // console.log(creaturesArrayNonFood[0].name)
-    // console.log(creaturesArrayNonFood[0].image)
-
-    document.querySelector('.container').classList.add('show')
-    for(let i = 0; i < creaturesArrayNonFood.length; i++){
-      document.getElementById('image').src = creaturesArrayNonFood[i].image
-      itemCreatureName.innerText = creaturesArrayNonFood[i].name
-      itemCreatureDescription.innerText = creaturesArrayNonFood[i].description
-
-    }
-
-  })
-  .catch(err => {
-    console.log(`error ${err}`)
-  });
+    .then(res =>res.json()) // parse response as JSON
+    .then(data => {
+      console.log(data.data)
+      let creaturesArrayNonFood = data.data.creatures.non_food
+      console.log(creaturesArrayNonFood[count].name)
+      imgContainer.src = creaturesArrayNonFood[count].image
+      itemCreatureName.innerText = creaturesArrayNonFood[count].name  
+    })
+    .catch(err => {
+      console.log(`error ${err}`)
+    });
+    count++;
+    console.log(count)
 }
+
+// const categories = Object.keys(data.data)
+      // for(let i = 0; i < categories.length; i++){
+      //   const newOption = document.createElement('option')
+      //   newOption.value = categories[i]
+      //   newOption.innerText = categories[i]
+      // }
   
