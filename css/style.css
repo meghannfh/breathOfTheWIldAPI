@@ -102,7 +102,7 @@ body {
 
 .searchedImg {
     max-width: fit-content;
-    border: 2px solid #8FC9F0;
+    /* border: 2px solid #8FC9F0; */
 }
 
 .linkLogo{
