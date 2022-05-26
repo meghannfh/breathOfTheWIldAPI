@@ -54,45 +54,7 @@ const testFetch = CATEGORY_URL => {
 })
 }
 
-
-// const getData = CATEGORY_URL => {
-//   fetch(CATEGORY_URL)
-//   .then(res => res.json())
-//   .then(data =>{
-//     let categoryArray = data.data.categoryType
-//     imgContainer.src = categoryArray[count].image
-//     itemCreatureName.innerText = categoryArray[count].name
-
-//   })
-// }
-
 // randomShuffle.addEventListener('click', getData);
-
-// newBtn.forEach((btn) => {
-//   btn.addEventListener('click', event =>{
-//     let CATEGORY_URL = `https://botw-compendium.herokuapp.com/api/v2/category/${event.target.value}`
-
-//     getFetch(CATEGORY_URL)
-//   })
-// })
-
-// const changeCategory = CATEGORY_URL => {
-//   fetch(CATEGORY_URL)
-//   .then(res => {
-//     res.json()
-//   })
-//   .then(data =>{
-
-//     console.log(data.data)
-    
-//   })
-// }
-
-// newBtn.addEventListener('click', event => {
-//   let CATEGORY_URL = `https://botw-compendium.herokuapp.com/api/v2/category/${event.target.value}`
-
-//   pullDataFromCategory(CATEGORY_URL)
-// })
 
 // const pullDataFromCategory = url =>{
 //   fetch(url)
@@ -127,11 +89,4 @@ function getFetch(){
     count++;
     console.log(count)
 }
-
-// const categories = Object.keys(data.data)
-      // for(let i = 0; i < categories.length; i++){
-      //   const newOption = document.createElement('option')
-      //   newOption.value = categories[i]
-      //   newOption.innerText = categories[i]
-      // }
   
