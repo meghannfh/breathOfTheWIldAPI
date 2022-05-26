@@ -95,13 +95,17 @@ body {
 }
 
 .imgContainer{
+    border: 2px solid red;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 }
 
 
 .searchedImg {
     max-width: fit-content;
+    display: flex;
+    align-self: center;
+    justify-self: center;
     /* border: 2px solid #8FC9F0; */
 }
 
@@ -111,17 +115,15 @@ body {
 }
 
 /* ARROWS */
-.rightarrow,
-.leftarrow{
+.randomBtn{
     display: flex;
     align-self: center;
     justify-self: center;
-    font-size: 4em;
+    font-size: 3.5em;
     font-weight: 500;
 }
 
-.rightarrow:hover,
-.leftarrow:hover {
+.randomBtn:hover{
     cursor: pointer;
 }
 
@@ -138,9 +140,6 @@ body {
     max-height: 280px;
     max-width: 280px;
 } */
-
-
-
 
 /* TEXT BOXES */
 .informationOuter {
