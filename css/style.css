@@ -114,6 +114,15 @@ body {
     height: 100%;
 }
 
+.catButton {
+    font-size: 3rem;
+}
+
+.catButton:hover{
+    color: white;
+    cursor: pointer;
+}
+
 /* ARROWS */
 .randomBtn{
     display: flex;
@@ -125,6 +134,7 @@ body {
 
 .randomBtn:hover{
     cursor: pointer;
+    color: white;
 }
 
 
