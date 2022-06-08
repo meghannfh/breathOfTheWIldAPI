@@ -4,7 +4,7 @@ const infoContainer = document.getElementById('infoContainer')
 const imgContainer = document.getElementById('image')
 const randomShuffle = document.getElementById('randomBtn')
 const btnContainer = document.getElementById('btnContainer')
-
+let searchValue =''
 let count = 0;
 // let entry = document.getElementById('searchAll').value
 
