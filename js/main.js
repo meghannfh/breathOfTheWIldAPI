@@ -111,5 +111,6 @@ const setFirstData = arr => {
 const loopThruArray = arr => {
   imgContainer.src = arr[count][1].image
   itemName.innerText = arr[count][1].name
+  itemDescription.innerText = arr[count][1].description
   count = (count+1)%(arr.length)
 }
