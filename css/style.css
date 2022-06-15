@@ -33,7 +33,7 @@ html {
     position: relative;
 }
 body {
-    max-height: 100%;
+    height: 100%;
     position: relative;
 }
 /*
@@ -62,22 +62,70 @@ Main
 ==========================================
 */
 /* PAGE MAIN BACKGROUND */
-body {
+html {
     background-image: url(/assets/bg.png);
     background-size:cover;
     background-repeat: no-repeat;
 }
-/* TITLE AND MAIN ICON CONTAINER */
-.headerContain{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, .8) 70%, rgba(0, 0, 0, 0.2));
 }
 
+/* MAIN CONTAINER */
+main {
+    margin: 5rem 2rem;
+    padding-bottom: 5rem;
+    background: rgba(64, 104, 109, 0.6);
+    background-position: center;
+    border: 3px solid #718d93;
+}
+
+
+/* BODY CONTAINER */
 .inputContainer{
     margin-top: 2em;
     display: flex;
     justify-content: center;
+    gap: 2rem;
 }
+
+/* ICON CATEGORIES IMAGES */
+#btnContainer img {
+    width: 50px;
+    height: 50px;
+}
+
+#btnContainer h3 {
+    position: relative;
+}
+
+#btnContainer div {
+    position: absolute;
+    top: -5rem;
+    left: -2rem;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+#btnContainer div:hover {
+    opacity: 1;
+    color: black;
+    text-decoration: line-through;
+}
+
+#btnContainer h5 {
+    display: block;
+    width: 100%;
+}
+
+/* ICON HOVER EFFECTS */
+
 
 /* CONTAINER FOR THE GRIDS TO MAKE IMAGE BOX AND TEXT BOX */
 .container {
@@ -99,7 +147,22 @@ body {
 
 .imgContainer{
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+.fa-solid{
+    align-self: center;
+    justify-self: center;
+    font-size: 5rem;
+    color:rgba(160, 244, 255, 1);
+    cursor: pointer;
+}
+
+.imgBorder {
+    justify-self: center;
+    border: 2px solid rgba(160, 244, 255, .8);
 }
 
 .searchedImg {
@@ -169,6 +232,7 @@ body {
     font-weight: 500;
     text-align: start;
     color: rgba(255, 255, 255, 0.908);
+    text-transform: capitalize;
 }
 
 .infoBody {

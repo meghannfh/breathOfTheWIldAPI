@@ -1,10 +1,21 @@
+// DEFINE GLOBAL VARIABLES
 const itemName = document.getElementById('itemName')
 const itemDescription = document.getElementById('itemDescription')
 const imgContainer = document.getElementById('image')
 const btnContainer = document.getElementById('btnContainer')
+const rightArrow = document.getElementById('arrowRight')
+
 let searchValue =''
 let count = 0;
 // let entry = document.getElementById('searchAll').value
+// DEFINE ARRAYS TO HOLD PROMISES
+let foodNamesArr;
+let nonFoodNamesArr;
+let equipmentNamesArr;
+let materialNamesArr;
+let monsterNamesArr;
+let treasureNamesArr;
+let currentArr;
 
 const urlAll = `https://botw-compendium.herokuapp.com/api/v2/entry/${searchValue}`;
 const url = `https://botw-compendium.herokuapp.com/api/v2/all`;
@@ -12,7 +23,7 @@ const url = `https://botw-compendium.herokuapp.com/api/v2/all`;
 
 const fetchArray = (event) => {
   console.log(event.target.id);
-  categoryType = event.target.id
+  categoryType = event.target.id;
 
   fetch(url)
     .then(res => res.json())
@@ -73,32 +84,51 @@ const fetchArray = (event) => {
       }, [])
       treasureNames = Object.entries(treasureNames).sort()
 
+      foodNamesArr = foodNames;
+      nonFoodNamesArr = nonfoodNames;
+      equipmentNamesArr = equipmentNames;
+      materialNamesArr = materialNames;
+      monsterNamesArr = monsterNames;
+      treasureNamesArr = treasureNames;
+      
+      
+
+
     switch (categoryType){
       case 'creaturesFood':
         setFirstData(foodNames);
+        currentArr = foodNames;
         break;
       case 'creaturesNonFood':
         setFirstData(nonfoodNames);
+        currentArr = nonfoodNames;
         break;
       case 'equipment':
         setFirstData(equipmentNames);
+        currentArr = equipmentNames;
         break;
       case 'materials':
         setFirstData(materialNames);
+        currentArr = materialNames;
         break;
       case 'monsters':
         setFirstData(monsterNames);
+        currentArr = monsterNames;
         break;
       case 'treasure':
         setFirstData(treasureNames);
+        currentArr = treasureNames;
         break;
     }
-    return categoryType
+    return categoryType;
+
+    
 
 })
   .catch(err=>console.error(err))
 
 }
+
 
 btnContainer.addEventListener('click', fetchArray);
 
@@ -108,9 +138,14 @@ const setFirstData = arr => {
   itemDescription.innerText = arr[0][1].description
 }
 
-const loopThruArray = arr => {
+const loopThruArray1 = arr => {
+  arr = currentArr
   imgContainer.src = arr[count][1].image
   itemName.innerText = arr[count][1].name
   itemDescription.innerText = arr[count][1].description
   count = (count+1)%(arr.length)
 }
+
+
+rightArrow.addEventListener('click', loopThruArray1)
+

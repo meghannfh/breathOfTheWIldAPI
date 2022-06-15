@@ -18,11 +18,6 @@
                 <h2>of <span class="hyrule">Hyrule</span></h2>
             </section>
 
-            <section class="imageOuter">
-                <section class="imageInner">
-                    <img class="linkLogo" src="/assets/icon.png">
-                </section>
-            </section>    
         </header>
     
         <main>
@@ -32,25 +27,62 @@
 
             <section class="inputContainer" id="btnContainer">
             <!-- CATEGORY BUTTONS-->
-            <h3 class="catButton" id="creaturesFood">Creatures Food</h3>
-            <h3 class="catButton" id="creaturesNonFood">Creatures Non-Food</h3>
-            <h3 class="catButton" id="equipment">Equipment</h3>
-            <h3 class="catButton" id="materials">Materials</h3>
-            <h3 class="catButton" id="monsters">Monsters</h3>
-            <h3 class="catButton" id="treasure">Treasures</h3>
+            <h3 class="catButton">
+                <img id="creaturesFood" src="/assets/icons/creaturesFood.png">
+                <!-- <div>
+                    <h5>CreaturesF</h5>
+                </div> -->
+            </h3>
+            <h3 class="catButton">
+                <img id="creaturesNonFood" src="/assets/icons/creatures.png">
+                <!-- <div>
+                    <h5>CreaturesNF</h5>
+                </div> -->
+            </h3>
+            <h3 class="catButton">
+                <img id="equipment" src="/assets/icons/equipment.jpg">
+                <!-- <div>
+                    <h5>Equipment</h5>
+                </div> -->
+            </h3>
+            <h3 class="catButton">
+                <img id="materials" src="/assets/icons/materials.jpg">
+                <!-- <div>
+                    <h5>Materials</h5>
+                </div> -->
+            </h3>
+            <h3 class="catButton">
+                <img id="monsters" src="/assets/icons/monsters.png">
+                <!-- <div>
+                    <h5>Monsters</h5>
+                </div> -->
+            </h3>
+            <h3 class="catButton">
+                <img id="treasure" src="/assets/icons/treasure.png">
+                <!-- <div>
+                    <h5>Treasure</h5>
+                </div> -->
+            </h3>
             <!--
                 AUTOCOMPLETE FORM
+                TO BE COMPLETED AFTER APP IS FUNCTIONAL WITH BASICS
             -->
-            <form autocomplete="off" action="/action_page.php">
+            <!-- <form autocomplete="off" action="/action_page.php">
                 <input id="searchAll" type="text" name="name" placeholder="Search . . . ">
                 <button>click me!</button>
-            </form>
+            </form> -->
             </section>
 
             <section class="container" id="infoContainer">
-                <div class="imgContainer">
-                    <img id="image" class="searchedImg" src="" alt="">
-                    <h3 class="randomBtn" id="randomBtn">Random Shuffle!</h3>
+               
+                <div class="imgContainer arrowContainer">
+                    <i id="arrowLeft" class="arrows fa-solid fa-chevron-left"></i>
+                    <div class="imgBorder">
+                        <img id="image" class="searchedImg" src="" alt="">
+                    <!-- LET'S ADD THIS TO THE HEADER SOMEWHERE OR OUT OF THE MAIN CONTAINER BODY -->
+                    <!-- <h3 class="randomBtn" id="randomBtn">Random Shuffle!</h3> -->
+                    </div>
+                    <i id="arrowRight" class="arrows fa-solid fa-chevron-right"></i>
                 </div>
                     
                 <!-- TEXT BOXES FOR DESCRIPTION -->
@@ -71,7 +103,7 @@
     
         <footer>
         </footer>
-
+        <script src="https://kit.fontawesome.com/3bfd3ce9e5.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="/js/main.js"></script>
     </body>
 </html>
