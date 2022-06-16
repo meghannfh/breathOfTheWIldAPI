@@ -4,8 +4,10 @@ const itemDescription = document.getElementById('itemDescription')
 const imgContainer = document.getElementById('image')
 const btnContainer = document.getElementById('btnContainer')
 const rightArrow = document.getElementById('arrowRight')
+const arrows = document.querySelectorAll('.arrows')
 
-let searchValue =''
+let arrowDirection = '';
+let searchValue ='';
 let count = 0;
 // let entry = document.getElementById('searchAll').value
 // DEFINE ARRAYS TO HOLD PROMISES
@@ -139,13 +141,24 @@ const setFirstData = arr => {
 }
 
 const loopThruArray1 = arr => {
-  arr = currentArr
-  imgContainer.src = arr[count][1].image
-  itemName.innerText = arr[count][1].name
-  itemDescription.innerText = arr[count][1].description
-  count = (count+1)%(arr.length)
+  if(arrowDirection === 'arrowRight'){
+    imgContainer.src = arr[count][1].image
+    itemName.innerText = arr[count][1].name
+    itemDescription.innerText = arr[count][1].description
+    count = (count+1)%(arr.length)
+  }else if(arrowDirection === 'arrowLeft'){
+    imgContainer.src = arr[count][1].image
+    itemName.innerText = arr[count][1].name
+    itemDescription.innerText = arr[count][1].description
+    count = (count-1)%(arr.length)
+  }
 }
 
+const getArrowId = (event) => {
+  arrowDirection = event.target.id
+  loopThruArray1(currentArr)
+}
 
-rightArrow.addEventListener('click', loopThruArray1)
-
+arrows.forEach((arrow) => {
+  arrow.addEventListener('click', getArrowId)
+})
