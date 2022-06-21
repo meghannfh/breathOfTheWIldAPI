@@ -3,9 +3,12 @@ const itemName = document.getElementById('itemName');
 const itemDescription = document.getElementById('itemDescription');
 const imgContainer = document.getElementById('image');
 const btnContainer = document.getElementById('btnContainer');
-const rightArrow = document.getElementById('arrowRight');
 const arrows = document.querySelectorAll('.arrows');
 const infoText = document.querySelector('.informationInner');
+const searchbar = document.querySelector('#myInput');
+const searchButton = document.querySelector('#submit');
+const rightArrow = document.getElementById('arrowRight');
+const leftArrow = document.getElementById('arrowLeft');
 
 
 let arrowDirection = '';
@@ -59,7 +62,7 @@ function autocomplete(inp, arr) {
           b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
           b.innerHTML += arr[i].substr(val.length);
           /*insert a input field that will hold the current array item's value:*/
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          b.innerHTML += `<input type='hidden' value="` + arr[i] + `">`;
           /*execute a function when someone clicks on the item value (DIV element):*/
               b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/
@@ -134,7 +137,7 @@ autocomplete(document.getElementById("myInput"), allItems);
 // END AUTOCOMPLETE ===========================================================================================================================
 
 
-// FETCH API INFORMATION (ARRAYS) =================================================================================================
+// FETCH API INFORMATION FOR ICONS AND ARROWS(ARRAYS) =================================================================================================
 const fetchArray = (event) => {
   console.log(event.target.id);
   categoryType = event.target.id;
@@ -239,6 +242,9 @@ const fetchArray = (event) => {
     // TURNS TEXT BACK INTO READABLE ENGLISH
     infoText.style.fontFamily = 'Hind, sans-serif';
 
+    // // TOGGLE SHOW ARROWS VISIBLE
+    // arrows.toggle();
+
     return categoryType;
 
     
@@ -281,3 +287,36 @@ const getArrowId = (event) => {
 arrows.forEach((arrow) => {
   arrow.addEventListener('click', getArrowId);
 })
+
+
+// END FETCH ARRAY API ====================================================================
+
+// LOAD ALL ARRAY ON LOAD
+
+searchbar.addEventListener('keydown', e =>{
+  if (e.keyCode == 13) {
+    searchButton.click();
+  }
+} )
+
+searchButton.addEventListener('click', async _ => {
+  await searchFetch();
+  infoText.style.fontFamily = 'Hind, sans-serif';
+  arrows.hide();
+});
+
+const searchFetch = async _ => {
+  let searchValue = document.querySelector('#myInput').value;
+  searchValue = searchValue.split(' ');
+  searchValue = searchValue.join('_');
+
+  const res = await fetch(`https://botw-compendium.herokuapp.com/api/v2/entry/${searchValue}`);
+  const json = await res.json();
+  const data = json.data;
+
+  if (Object.keys(data).length > 0) {
+    itemName.innerText = data.name;
+    itemDescription.innerText = data.description;
+    imgContainer.src = data.image;
+  }
+}
