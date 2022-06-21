@@ -19,7 +19,7 @@ body {
 }
 
 .bg-overlay {
-    position: absolute;
+    position: fixed;
     background-color: #00000061;
     top: 0;
     left: 0;
@@ -74,7 +74,7 @@ main {
 }
 
 /* BODY CONTAINER */
-.inputContainer{
+.btnContainer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,16 +82,20 @@ main {
 }
 
 /* ICON CATEGORIES IMAGES */
-#btnContainer img {
+.btnContainer img {
     width: 50px;
     height: 50px;
 }
 
-#btnContainer h3 {
+.btnContainer img:hover {
+    cursor: pointer;
+}
+
+.btnContainer h3 {
     position: relative;
 }
 
-#btnContainer div {
+/* .btnContainer div {
     position: absolute;
     top: -5rem;
     left: -2rem;
@@ -102,18 +106,18 @@ main {
     align-items: center;
     justify-content: center;
     opacity: 0;
-}
+} */
 
-#btnContainer div:hover {
+/* .btnContainer div:hover {
     opacity: 1;
     color: black;
     text-decoration: line-through;
 }
 
-#btnContainer h5 {
+.btnContainer h5 {
     display: block;
     width: 100%;
-}
+} */
 
 /* ICON HOVER EFFECTS */
 
@@ -140,6 +144,7 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-between;
+    align-content: center;
     margin: 2rem 0;
 }
 
@@ -161,6 +166,8 @@ main {
     display: flex;
     align-self: center;
     justify-self: center;
+    width: 250px;
+    height: 250px;
     /* border: 2px solid #8FC9F0; */
 }
 
@@ -213,7 +220,7 @@ footer {
     position: fixed;
     bottom: 0;
     right: 0;
-    display: block;
+    display: hidden;
 }
 
 
