@@ -18,9 +18,25 @@
 
     </header>
     
-    <main>
-        <!-- IMAGE BOXES FOR MEDIA -->
-        <section class="inputContainer btnContainer" id="btnContainer">
+        <main>
+
+            <section>
+                  <!--
+                AUTOCOMPLETE FORM
+                TO BE COMPLETED AFTER APP IS FUNCTIONAL WITH BASICS
+            -->
+            <!--Make sure the form has the autocomplete function switched off:-->
+            <form autocomplete="off" action="/action_page.php">
+                <div class="autocomplete" style="width:300px;">
+                    <input id="myInput" type="text" name="myCountry" placeholder="Search . . .">
+                </div>
+                <input type="submit">
+            </form>
+            </section>
+                
+                <!-- IMAGE BOXES FOR MEDIA -->
+
+            <section class="inputContainer btnContainer" id="btnContainer">
             <!-- CATEGORY BUTTONS-->
             <h3 class="catButton">
                 <img id="creaturesFood" src="/assets/icons/creaturesFood.png">
@@ -40,27 +56,36 @@
             <h3 class="catButton">
                 <img id="treasure" src="/assets/icons/treasure.png">
             </h3>
-            <!--
-                AUTOCOMPLETE FORM
-                TO BE COMPLETED AFTER APP IS FUNCTIONAL WITH BASICS
-            -->
-            <!-- <form autocomplete="off" action="/action_page.php">
-                <input id="searchAll" type="text" name="name" placeholder="Search . . . ">
-                <button>click me!</button>
-            </form> -->
-        </section>
-        <section class="container" id="infoContainer">
-            <div class="imgContainer arrowContainer">
-                <i id="arrowLeft" class="arrows fa-solid fa-chevron-left"></i>
-                <div class="imgBorder">
-                    <img id="image" class="searchedImg" src="" alt="">
+            
+            </section>
+
+
+            <section class="container" id="infoContainer">
+               
+                <div class="imgContainer arrowContainer">
+                    <i id="arrowLeft" class="arrows fa-solid fa-chevron-left"></i>
+                    <div class="imgBorder">
+                        <img id="image" class="searchedImg" src="/assets/menuBG.png" alt="">
+                    <!-- LET'S ADD THIS TO THE HEADER SOMEWHERE OR OUT OF THE MAIN CONTAINER BODY -->
+                    <!-- <h3 class="randomBtn" id="randomBtn">Random Shuffle!</h3> -->
+                    </div>
+                    <i id="arrowRight" class="arrows fa-solid fa-chevron-right"></i>
                 </div>
-                <i id="arrowRight" class="arrows fa-solid fa-chevron-right"></i>
-            </div>
-            <!-- TEXT BOXES FOR DESCRIPTION -->
-                <section class="informationInner">
-                    <section class="infoTitle" id="itemName">Item/Creature Name</section>
-                    <section class="infoBody" id="itemDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime suscipit officia porro, quos repellat quisquam impedit sed consequatur saepe sint illo ratione quis atque totam obcaecati laboriosam tempore! Labore, illum.</section>
+                    
+                <!-- TEXT BOXES FOR DESCRIPTION -->
+                <section class="informationOuter">
+
+                    <section class="informationInner">
+
+                        <section class="infoTitle" id="itemName">
+                            Item/Creature Name
+
+                        </section>
+                        <section class="infoBody" id="itemDescription">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum nulla, atque consequuntur aut nam dicta?
+                        </section>
+                        
+                    </section>
                 </section>
         </section>
     </main>
