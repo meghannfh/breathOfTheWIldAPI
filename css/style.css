@@ -78,7 +78,7 @@ main {
 }
 
 /* BODY CONTAINER */
-.inputContainer{
+.btnContainer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +87,7 @@ main {
 }
 
 /* ICON CATEGORIES IMAGES */
-#btnContainer img {
+.btnContainer img {
     position: relative;
     width: 50px;
     height: 50px;
@@ -95,13 +95,17 @@ main {
     cursor: pointer;
 }
 
-#btnContainer h3 {
+.btnContainer img:hover {
+    cursor: pointer;
+}
+
+.btnContainer h3 {
     position: relative;
     border: 4px solid black;
     border-radius: 30%;
 }
 
-#btnContainer div {
+/* .btnContainer div {
     position: absolute;
     top: -5rem;
     left: -2rem;
@@ -112,18 +116,18 @@ main {
     align-items: center;
     justify-content: center;
     opacity: 0;
-}
+} */
 
-#btnContainer div:hover {
+/* .btnContainer div:hover {
     opacity: 1;
     color: black;
     text-decoration: line-through;
 }
 
-#btnContainer h5 {
+.btnContainer h5 {
     display: block;
     width: 100%;
-}
+} */
 
 .fa-turkey{
     font-size: 3rem;
@@ -242,6 +246,8 @@ input[type=text] {
     display: flex;
     align-self: center;
     justify-self: center;
+    width: 250px;
+    height: 250px;
     /* border: 2px solid #8FC9F0; */
 }
 
