@@ -45,6 +45,7 @@ header {
     color: white;
     font-size: 2rem;
     line-height: 2.4rem;
+    text-shadow: 0 0 2px blanchedalmond;
 }
 /* THE WORD ENCYCLOPEDIA */
 .encyclopedia {
@@ -65,14 +66,12 @@ html {
     background: url(/assets/bg.png) no-repeat center center fixed;
     background-size: cover;
     height: 100%;
-    overflow: hidden;
   }
 
 
 /* MAIN CONTAINER */
 main {
     margin: 0 auto;
-    padding-bottom: 5rem;
     background: rgba(64, 104, 109, 0.6);
     border: 3px solid #718d93;
     width: 90vw;
@@ -84,6 +83,7 @@ main {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    padding: .5rem 0;
 }
 
 /* ICON CATEGORIES IMAGES */
@@ -92,6 +92,7 @@ main {
     width: 50px;
     height: 50px;
     top: 5px;
+    cursor: pointer;
 }
 
 .btnContainer img:hover {
@@ -128,6 +129,10 @@ main {
     width: 100%;
 } */
 
+.fa-turkey{
+    font-size: 3rem;
+}
+
 /* ICON HOVER EFFECTS */
 
 /* SEARCHBAR */
@@ -135,8 +140,11 @@ main {
 section form {
     border-bottom: 3px solid #718d93;
     border-top: 3px solid #718d93;
-    margin: 5rem 2rem 0 2rem;
+    margin: 1rem 2rem 0 2rem;
     padding: 1rem;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    justify-content: center;
 }
 .autocomplete {
   /*the container must be positioned relative:*/
@@ -154,11 +162,12 @@ input[type=text] {
   width: 100%;
   border-radius: .5rem;
 }
-input[type=submit] {
+#submit {
   background-color: rgba(160, 244, 255, .8);
   color: #000;
   cursor: pointer;
   border-radius: .5rem;
+  font-family: 'botw', Hindi, sans-serif;
 }
 
 .autocomplete-items {
@@ -199,9 +208,8 @@ input[type=submit] {
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     gap: 0;
-    margin: 1rem auto;
-    /* height: 60vh; */
-    border: 3px solid #718d93;
+    border-top: 3px solid #718d93;
+    border-bottom: 3px solid #718d93;
 }
 
 /* IMAGE SIZING & CONTAINER */
@@ -212,7 +220,7 @@ input[type=submit] {
 .imgContainer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-between;
+    justify-content: center;
     align-content: center;
     margin: 2rem 0;
 }
@@ -227,9 +235,9 @@ input[type=submit] {
 
 .imgBorder {
     justify-self: center;
-    border: 2px solid rgba(160, 244, 255, .8);
-    width: 284px;
-    height: 284px;
+    border: 3px solid #718d93;
+    width: 286px;
+    height: 286px;
 }
 
 .searchedImg {
@@ -248,6 +256,15 @@ input[type=submit] {
     height: 100%;
 }
 
+/*
+===================================
+Toggle Arrows
+===================================
+*/
+.arrows {
+    display: none;
+}
+
 /* TEXT BOXES */
 .informationInner {
     background: rgba(0, 0, 0, 0.485);
@@ -263,6 +280,7 @@ input[type=submit] {
     text-align: start;
     color: rgba(255, 255, 255, 0.908);
     text-transform: capitalize;
+    word-break: break-all;
 }
 
 .infoBody {
@@ -274,15 +292,6 @@ input[type=submit] {
     font-weight: 300;
     font-style: italic;
     color: rgba(253, 253, 253, 0.643);
-}
-
-/*
-===================================
-Show info container
-===================================
-*/
-.show{
-    display: grid;
 }
 
 /*
