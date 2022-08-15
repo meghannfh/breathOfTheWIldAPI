@@ -42,8 +42,6 @@ Header
 */
 /* PAGE TITLE */
 header {
-    margin: 0 auto;
-    width: 500px;
     color: white;
     font-size: 2rem;
     line-height: 2.4rem;
@@ -51,13 +49,30 @@ header {
 }
 /* THE WORD ENCYCLOPEDIA */
 .encyclopedia {
-    font-size: 4rem;
+    font-size: 2.7rem;
     display: block;
 }
 /* THE WORD HYRULE */
 .hyrule {
-    font-size: 6rem;
+    font-size: 5rem;
 }
+
+.titleContainer{
+    margin-left: 3rem;
+    margin-top: .3rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.titleContainer h2{
+    display: flex;
+}
+
+.titleContainer h2 span {
+    display: inline;
+}
+
 /*
 ==========================================
 Main
@@ -73,7 +88,7 @@ html {
 
 /* MAIN CONTAINER */
 main {
-    margin: 0 auto 1rem auto;
+    margin: 0 auto .1rem auto;
     background: rgba(64, 104, 109, 0.6);
     border: 3px solid #718d93;
     width: 90vw;
@@ -279,7 +294,7 @@ Toggle Arrows
     display: block;
     background: rgba(0, 0, 0, 0.485);
     /* border: 3px solid transparent; */
-    /* height: 100%; */
+    height: 100%;
     font-family: 'botw';
     width:auto;
 }
@@ -314,13 +329,16 @@ footer {
     color: #d4d4d4;
     font-family: 'Hind';
     font-weight: 100;
-    background-color: rgba(0, 0, 0, 0.485);
     padding: 1rem;
     text-align: center;
     transition: all .2s ease-in;
 }
 
 .footerTxt{
+    padding: .7rem;
+    border-radius: 1rem;
+    display: inline;
+    background-color: rgba(0, 0, 0, 0.485);
     font-size: .75rem;
     font-style: italic;
 }
