@@ -42,6 +42,8 @@ Header
 */
 /* PAGE TITLE */
 header {
+    margin: 0 auto;
+    width: 500px;
     color: white;
     font-size: 2rem;
     line-height: 2.4rem;
@@ -71,10 +73,11 @@ html {
 
 /* MAIN CONTAINER */
 main {
-    margin: 0 auto;
+    margin: 0 auto 1rem auto;
     background: rgba(64, 104, 109, 0.6);
     border: 3px solid #718d93;
     width: 90vw;
+    overflow: hidden;
 }
 
 /* BODY CONTAINER */
@@ -105,42 +108,48 @@ main {
     border-radius: 30%;
 }
 
-/* .btnContainer div {
-    position: absolute;
-    top: -5rem;
-    left: -2rem;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-} */
-
-/* .btnContainer div:hover {
-    opacity: 1;
-    color: black;
-    text-decoration: line-through;
-}
-
-.btnContainer h5 {
-    display: block;
-    width: 100%;
-} */
-
-.fa-turkey{
-    font-size: 3rem;
-}
-
 /* ICON HOVER EFFECTS */
+/*display category name on hover of each icon*/
+.hoverTxt{
+    visibility: hidden;
+    padding: .17rem;
+    display: block;
+    width: 85px;
+    text-align: center;
+    border-radius: 1rem;
+    font-size: 12px;
+    text-shadow: 0 0 2px blanchedalmond;
+    color: white;
+    font-weight: 100;
+    background-color: rgba(0, 0, 0, 0.485);
+    position: absolute;
+    top: -1.5rem;
+    left: -1rem;
+    transition-property: visibility;
+    transition: all 0s ease-in-out;
+}
+
+.catButton:hover{
+    border-color: rgba(160, 244, 255, .8);
+}
+
+/*display category name on hover of each icon*/
+.creaturesFoodBtn:hover .hoverTxt,
+.creaturesNonFoodBtn:hover .hoverTxt,
+.equipmentBtn:hover .hoverTxt,
+.materialsBtn:hover .hoverTxt,
+.monstersBtn:hover .hoverTxt,
+.treasureBtn:hover .hoverTxt{
+    visibility: visible;
+}
+
 
 /* SEARCHBAR */
 /* ============================================================= */
 section form {
-    border-bottom: 3px solid #718d93;
-    border-top: 3px solid #718d93;
-    margin: 1rem 2rem 0 2rem;
+    border-bottom: 1px solid #718d93;
+    /* border-top: 3px solid #718d93; */
+    margin: 0rem 2rem 0 2rem;
     padding: 1rem;
     display: grid;
     grid-template-columns: 4fr 1fr;
@@ -153,15 +162,21 @@ section form {
 }
 input {
   border: 1px solid transparent;
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   padding: 5px;
   font-size: 16px;
 }
 input[type=text] {
-  background-color: #f1f1f1;
+  background-color: transparent;
   width: 100%;
+  outline: 1px solid rgba(160, 244, 255, .8);
   border-radius: .5rem;
 }
+
+input::placeholder{
+    color: white;
+}
+
 #submit {
   background-color: rgba(160, 244, 255, .8);
   color: #000;
@@ -209,7 +224,6 @@ input[type=text] {
     justify-content: center;
     gap: 0;
     border-top: 3px solid #718d93;
-    border-bottom: 3px solid #718d93;
 }
 
 /* IMAGE SIZING & CONTAINER */
@@ -233,22 +247,13 @@ input[type=text] {
     cursor: pointer;
 }
 
-.imgBorder {
-    justify-self: center;
-    border: 3px solid #718d93;
-    width: 286px;
-    height: 286px;
-}
-
 .searchedImg {
-    width: 280px;
-    height: 280px;
     display: flex;
     align-self: center;
     justify-self: center;
     width: 250px;
     height: 250px;
-    /* border: 2px solid #8FC9F0; */
+    border: 2px solid #8FC9F0;
 }
 
 .linkLogo{
@@ -265,12 +270,18 @@ Toggle Arrows
     display: none;
 }
 
+.arrows:hover{
+    text-shadow: 0 5px 15px rgba(99, 230, 239, 0.642);
+}
+
 /* TEXT BOXES */
 .informationInner {
+    display: block;
     background: rgba(0, 0, 0, 0.485);
-    border: 3px solid transparent;
-    height: 100%;
+    /* border: 3px solid transparent; */
+    /* height: 100%; */
     font-family: 'botw';
+    width:auto;
 }
 
 .infoTitle {
@@ -300,10 +311,38 @@ Footer
 ==========================================
 */
 footer {
+    color: #d4d4d4;
+    font-family: 'Hind';
+    font-weight: 100;
+    background-color: rgba(0, 0, 0, 0.485);
+    padding: 1rem;
+    text-align: center;
+    transition: all .2s ease-in;
+}
+
+.footerTxt{
+    font-size: .75rem;
+    font-style: italic;
+}
+
+
+.footerTxt a{
+    font-weight: 700;
+    color: #d4d4d4;
+    font-size: 1rem;
+}
+
+.footerTxt a:hover{
+    color: rgba(160, 244, 255, .8);
+    text-shadow: 0 5px 15px rgba(99, 230, 239, 0.642);
+}
+
+/*secret dot in bottom right corner to get get overlay to stretch to the edge of the page*/
+.dot{
     position: fixed;
     bottom: 0;
     right: 0;
-    display: hidden;
+    visibility: hidden;
 }
 
 
