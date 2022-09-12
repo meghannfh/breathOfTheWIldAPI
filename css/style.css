@@ -233,7 +233,7 @@ input::placeholder{
 /* CONTAINER FOR THE GRIDS TO MAKE IMAGE BOX AND TEXT BOX */
 .container {
     width: 100%;
-    height: auto;
+    height: 60vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
@@ -326,6 +326,10 @@ Footer
 ==========================================
 */
 footer {
+    position: absolute;
+    bottom: 10;
+    left: 0;
+    right: 0;
     color: #d4d4d4;
     font-family: 'Hind';
     font-weight: 100;
