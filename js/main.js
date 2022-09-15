@@ -24,6 +24,7 @@ let monsterNamesArr;
 let treasureNamesArr;
 let currentArr;
 
+
 const urlAll = `https://botw-compendium.herokuapp.com/api/v2/entry/${searchValue}`;
 const url = `https://botw-compendium.herokuapp.com/api/v2/all`;
 
@@ -70,6 +71,9 @@ function autocomplete(inp, arr) {
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();
+              document.querySelector('#submit').click();
+              document.querySelector('#arrowLeft').style.visibility = 'hidden';
+              document.querySelector('#arrowRight').style.visibility = 'hidden';
           });
           a.appendChild(b);
         }
@@ -97,6 +101,8 @@ function autocomplete(inp, arr) {
         if (currentFocus > -1) {
           /*and simulate a click on the "active" item:*/
           if (x) x[currentFocus].click();
+          document.querySelector('#arrowLeft').style.visibility = 'hidden';
+          document.querySelector('#arrowRight').style.visibility = 'hidden';
         }
       }
   });
@@ -255,7 +261,11 @@ const fetchArray = (event) => {
 }
 
 
-btnContainer.addEventListener('click', fetchArray);
+btnContainer.addEventListener('click', _ => {
+  fetchArray(event);
+  document.querySelector('#arrowLeft').style.visibility = 'visible';
+  document.querySelector('#arrowRight').style.visibility = 'visible';
+});
 
 const setFirstData = arr => {
   imgContainer.src = arr[0][1].image;
@@ -297,7 +307,7 @@ searchbar.addEventListener('keydown', e =>{
   if (e.keyCode == 13) {
     searchButton.click();
   }
-} )
+})
 
 searchButton.addEventListener('click', async _ => {
   await searchFetch();
