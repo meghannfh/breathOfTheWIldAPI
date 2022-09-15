@@ -265,6 +265,7 @@ btnContainer.addEventListener('click', _ => {
   fetchArray(event);
   document.querySelector('#arrowLeft').style.visibility = 'visible';
   document.querySelector('#arrowRight').style.visibility = 'visible';
+  document.querySelector('#myInput').value = '';
 });
 
 const setFirstData = arr => {
