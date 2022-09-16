@@ -303,11 +303,10 @@ searchbar.addEventListener('keydown', e =>{
 } )
 
 searchButton.addEventListener('click', async _ => {
+  document.getElementById('arrowRight').classList.add('hidden')
+  document.getElementById('arrowLeft').classList.add('hidden')
   await searchFetch();
   infoText.style.fontFamily = 'Hind, sans-serif';
-  // arrows.hide()
-  document.getElementById('arrowRight').classList.add('.hidden')
-  document.getElementById('arrowLeft').classList.add('.hidden')
 });
 
 const searchFetch = async _ => {
