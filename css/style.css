@@ -281,8 +281,8 @@ input::placeholder{
 Toggle Arrows
 ===================================
 */
-.arrows {
-    display: none;
+.hidden{
+    visibility: hidden;
 }
 
 .arrows:hover{
