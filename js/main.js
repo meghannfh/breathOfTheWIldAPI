@@ -13,7 +13,7 @@ const leftArrow = document.getElementById('arrowLeft');
 
 let arrowDirection = '';
 let searchValue ='';
-let count = 0;
+let count = 1;
 // let entry = document.getElementById('searchAll').value
 // DEFINE ARRAYS TO HOLD PROMISES
 let foodNamesArr;
@@ -134,7 +134,7 @@ document.addEventListener("click", function (e) {
 
 autocomplete(document.getElementById("myInput"), allItems);
 
-// END AUTOCOMPLETE ===========================================================================================================================
+// END AUTOCOMPLETE ==================================================================================================
 
 
 // FETCH API INFORMATION FOR ICONS AND ARROWS(ARRAYS) =================================================================================================
@@ -267,11 +267,14 @@ const setFirstData = arr => {
 // CREATE A CONDITIONAL WHERE COUNT CANNOT BE LESS THAN 0
 const loopThruArray1 = arr => {
   if(arrowDirection === 'arrowRight'){
+    console.log(arr.length)
+    console.log(count)
     count = (count+1)%(arr.length);
     imgContainer.src = arr[count][1].image;
     itemName.innerText = arr[count][1].name;
     itemDescription.innerText = arr[count][1].description;
   }else if(arrowDirection === 'arrowLeft'){
+    console.log(count)
     count = (count-1)%(arr.length);
     imgContainer.src = arr[count][1].image;
     itemName.innerText = arr[count][1].name;
