@@ -140,26 +140,25 @@ document.addEventListener("click", function (e) {
 
 autocomplete(document.getElementById("myInput"), allItems);
 
-// END AUTOCOMPLETE ===========================================================================================================================
+// END AUTOCOMPLETE ==================================================================================================
 
 
 // FETCH API INFORMATION FOR ICONS AND ARROWS(ARRAYS) =================================================================================================
 const fetchArray = (event) => {
   console.log(event.target.id);
   categoryType = event.target.id;
-  console.log(infoText);
-
   fetch(url)
     .then(res => res.json())
     .then(data => {
-
+      searchbar.value = ''
       /* EXAMPLE
       reduce((total, current) => {
         total[current.name] = current;
         total['blue beetle'] = { 'blue beetle': object key value pairs };
         return total;
       }, [])*/
-
+      document.getElementById('arrowLeft').classList.remove("hidden")
+      document.getElementById('arrowRight').classList.remove("hidden")
       // TURNING ARRAY INTO NAME-BASED ARRAY OF FOOD ITEMS
       const foodNumbers = data.data.creatures.food;
       let foodNames = foodNumbers.reduce((acc, cur) => {
@@ -248,12 +247,8 @@ const fetchArray = (event) => {
     // TURNS TEXT BACK INTO READABLE ENGLISH
     infoText.style.fontFamily = 'Hind, sans-serif';
 
-    // // TOGGLE SHOW ARROWS VISIBLE
-    // arrows.toggle();
-
     return categoryType;
 
-    
 
 })
   .catch(err=>console.error(err))
@@ -282,7 +277,14 @@ const loopThruArray1 = arr => {
     imgContainer.src = arr[count][1].image;
     itemName.innerText = arr[count][1].name;
     itemDescription.innerText = arr[count][1].description;
+    if(count === arr.length){
+      count = 0
+    }
   }else if(arrowDirection === 'arrowLeft'){
+    if(count === 0){
+      count = arr.length
+    }
+    console.log(count)
     count = (count-1)%(arr.length);
     imgContainer.src = arr[count][1].image;
     itemName.innerText = arr[count][1].name;
@@ -307,13 +309,15 @@ arrows.forEach((arrow) => {
 searchbar.addEventListener('keydown', e =>{
   if (e.keyCode == 13) {
     searchButton.click();
+    searchbar.value = ''
   }
 })
 
 searchButton.addEventListener('click', async _ => {
+  document.getElementById('arrowRight').classList.add('hidden')
+  document.getElementById('arrowLeft').classList.add('hidden')
   await searchFetch();
   infoText.style.fontFamily = 'Hind, sans-serif';
-  arrows.hide();
 });
 
 const searchFetch = async _ => {
