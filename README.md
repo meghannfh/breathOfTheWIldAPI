@@ -15,6 +15,8 @@ An autocomplete search bar allows users to find exact and/or similar matches to 
 
 Alternatively, users can search with the forward or back arrow through individual list sets available through the API by clicking on the icons for the following categories:
 
+![categories](assets/categoryselection.mp4)
+
 * Food Creatures
 * Non-food Creatures
 * Equipment
