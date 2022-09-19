@@ -281,6 +281,7 @@ input::placeholder{
 Toggle Arrows
 ===================================
 */
+
 .hidden{
     visibility: hidden;
 }
@@ -318,6 +319,8 @@ Toggle Arrows
     font-weight: 300;
     font-style: italic;
     color: rgba(253, 253, 253, 0.643);
+    overflow-y: auto;
+    max-height: 75%;
 }
 
 /*
