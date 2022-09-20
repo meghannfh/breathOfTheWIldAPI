@@ -388,4 +388,7 @@ Media Queries
     .btnContainer{
         gap: .5rem;
     }
+    .footerTxt{
+        font-size: .50rem;
+    }
 }
