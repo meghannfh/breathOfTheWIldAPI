@@ -1,7 +1,7 @@
 # Breath of the Wild Encyclopedia
 A collaborative encyclopedia about the world of Hyrule from Nintendo's popular "The Legend of Zelda" game franchise.
 
-**Link to project:** [INSERT LIVE LINK WHEN COMPLETED]
+**Link to project:** [Test it out here!](https://botw-encyclopedia.netlify.app/)]
 
 ![home page](assets/homepage.png)
 
