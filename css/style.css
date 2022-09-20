@@ -98,6 +98,7 @@ main {
 /* BODY CONTAINER */
 .btnContainer{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 2rem;
@@ -233,7 +234,6 @@ input::placeholder{
 /* CONTAINER FOR THE GRIDS TO MAKE IMAGE BOX AND TEXT BOX */
 .container {
     width: 100%;
-    height: 60vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
