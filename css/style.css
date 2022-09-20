@@ -383,3 +383,9 @@ Media Queries
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+@media screen and (max-width: 570px) {
+    .btnContainer{
+        gap: .5rem;
+    }
+}
