@@ -33,4 +33,4 @@ Learned a substantial amount about object manipulation in JavaScript.
 
 ## Authors and Contributors
 
-This project was created by Minh and Meghann
+This project was created by [Minh](https://github.com/doanaminh) and [Meghann](https://github.com/meghannfh)
