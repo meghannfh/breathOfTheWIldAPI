@@ -13,6 +13,8 @@ An extensive database for items, creatures, weapons, and armor for the world of 
 
 An autocomplete search bar allows users to find exact and/or similar matches to their search query.
 
+https://user-images.githubusercontent.com/96492221/191335897-fa8aba98-4fcd-499f-8e96-f51f1b64af96.mp4
+
 Alternatively, users can search with the forward or back arrow through individual list sets available through the API by clicking on the icons for the following categories:
 
 https://user-images.githubusercontent.com/96492221/191334788-5e8b49ba-f591-444d-ab0d-a3705a5e1da1.mp4
