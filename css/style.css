@@ -149,6 +149,10 @@ main {
     border-color: rgba(160, 244, 255, .8);
 }
 
+.catButton:focus{
+    border-color: rgba(160, 244, 255, .8);
+}
+
 /*display category name on hover of each icon*/
 .creaturesFoodBtn:hover .hoverTxt,
 .creaturesNonFoodBtn:hover .hoverTxt,
@@ -158,6 +162,7 @@ main {
 .treasureBtn:hover .hoverTxt{
     visibility: visible;
 }
+
 
 
 /* SEARCHBAR */
@@ -390,5 +395,11 @@ Media Queries
     }
     .footerTxt{
         font-size: .50rem;
+    }
+}
+
+@media screen and (max-width: 375px){
+    .arrowContainer .arrows{
+        font-size: 3rem;
     }
 }
