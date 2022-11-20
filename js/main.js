@@ -2,26 +2,24 @@
 const itemName = document.getElementById('itemName');
 const itemDescription = document.getElementById('itemDescription');
 const imgContainer = document.getElementById('image');
-const btnContainer = document.getElementById('btnContainer');
+const catButtons = document.querySelectorAll('.catButton')
 const arrows = document.querySelectorAll('.arrows');
 const infoText = document.querySelector('.informationInner');
 const searchbar = document.querySelector('#myInput');
 const searchButton = document.querySelector('#submit');
 const rightArrow = document.getElementById('arrowRight');
 const leftArrow = document.getElementById('arrowLeft');
+const welcomeBtn = document.getElementById('welcome-message-btn')
+
+welcomeBtn.addEventListener('click', () => {
+  const welcomeMsg = document.getElementById('welcome-message')
+  welcomeMsg.classList.add('close-welcome-message')
+})
 
 
 let arrowDirection = '';
 let searchValue ='';
 let count = 0;
-// let entry = document.getElementById('searchAll').value
-// DEFINE ARRAYS TO HOLD PROMISES
-let foodNamesArr;
-let nonFoodNamesArr;
-let equipmentNamesArr;
-let materialNamesArr;
-let monsterNamesArr;
-let treasureNamesArr;
 let currentArr;
 
 
@@ -144,28 +142,23 @@ autocomplete(document.getElementById("myInput"), allItems);
 
 
 // FETCH API INFORMATION FOR ICONS AND ARROWS(ARRAYS) =================================================================================================
-const fetchArray = (event) => {
-  console.log(event.target.id);
-  categoryType = event.target.id;
+const fetchArray = (btnCategory) => {
+  // console.log(event.target.id);
+  categoryType = btnCategory
   fetch(url)
     .then(res => res.json())
     .then(data => {
       searchbar.value = ''
-      /* EXAMPLE
-      reduce((total, current) => {
-        total[current.name] = current;
-        total['blue beetle'] = { 'blue beetle': object key value pairs };
-        return total;
-      }, [])*/
-      document.getElementById('arrowLeft').classList.remove("hidden")
-      document.getElementById('arrowRight').classList.remove("hidden")
+
       // TURNING ARRAY INTO NAME-BASED ARRAY OF FOOD ITEMS
       const foodNumbers = data.data.creatures.food;
       let foodNames = foodNumbers.reduce((acc, cur) => {
         acc[cur.name] = cur;
         return acc;
-      }, []);
+      }, {});
       foodNames = Object.entries(foodNames).sort()
+      console.log(foodNames)
+      
 
       // TURNING ARRAY INTO NAME-BASED ARRAY OF NON-FOOD ITEMS
       const nonfoodNumbers = data.data.creatures.non_food;
@@ -206,23 +199,13 @@ const fetchArray = (event) => {
         return acc;
       }, [])
       treasureNames = Object.entries(treasureNames).sort()
-
-      foodNamesArr = foodNames;
-      nonFoodNamesArr = nonfoodNames;
-      equipmentNamesArr = equipmentNames;
-      materialNamesArr = materialNames;
-      monsterNamesArr = monsterNames;
-      treasureNamesArr = treasureNames;
-      
-      
-
-
+    
     switch (categoryType){
-      case 'creaturesFood':
+      case 'food':
         setFirstData(foodNames);
         currentArr = foodNames;
         break;
-      case 'creaturesNonFood':
+      case 'non_food':
         setFirstData(nonfoodNames);
         currentArr = nonfoodNames;
         break;
@@ -249,24 +232,29 @@ const fetchArray = (event) => {
 
     return categoryType;
 
-
 })
   .catch(err=>console.error(err))
 
 }
 
-
-btnContainer.addEventListener('click', _ => {
-  fetchArray(event);
+//grab category id from each btn clicked, display both left and right arrow
+//clear input
+catButtons.forEach(btn => btn.addEventListener('click', (e)=>{
+  let id = e.target.parentElement.id
+  fetchArray(id)
+  //add another function for currently selected category btn to remain highlighted
+  //use id and assign to var then check for current value of var
+  //apply style to btn that equals same value of current value of var
   document.querySelector('#arrowLeft').style.visibility = 'visible';
   document.querySelector('#arrowRight').style.visibility = 'visible';
   document.querySelector('#myInput').value = '';
-});
+}))
 
 const setFirstData = arr => {
   imgContainer.src = arr[0][1].image;
   itemName.innerText = arr[0][1].name;
   itemDescription.innerText = arr[0][1].description;
+  imgContainer.alt = `an image of ${arr[0][1].name}`
 }
 
 
@@ -277,6 +265,7 @@ const loopThruArray1 = arr => {
     imgContainer.src = arr[count][1].image;
     itemName.innerText = arr[count][1].name;
     itemDescription.innerText = arr[count][1].description;
+    imgContainer.alt = `an image of ${arr[count][1].name}`
     if(count === arr.length){
       count = 0
     }
@@ -289,6 +278,7 @@ const loopThruArray1 = arr => {
     imgContainer.src = arr[count][1].image;
     itemName.innerText = arr[count][1].name;
     itemDescription.innerText = arr[count][1].description;
+    imgContainer.alt = `an image of ${arr[count][1].name}`
   };
 }
 
@@ -304,7 +294,79 @@ arrows.forEach((arrow) => {
 
 // END FETCH ARRAY API ====================================================================
 
-// LOAD ALL ARRAY ON LOAD
+//First let's fetch all the data 
+async function fetchAllData(url) {
+	const results = await fetch(url);
+	const data = await results.json();
+
+  //Get rid of the outside {} and send the information we need
+  const itemsData = data.data
+
+  //sending the info to be rearragned and then cached
+  cacheToLocalStorage(itemsData)
+}
+
+async function cacheToLocalStorage(data){
+  //because the initial organization of the items 
+  //slightly differs we will have to change up how we
+  //access the bits we want and each time assign them 
+  //to arr
+  let arr;
+
+  //loop through each not-creatures key
+  //creatures has sub-categories that we have to deal with later
+  for(const categoryKeys in data){
+    if(categoryKeys !== 'creatures'){
+
+      //let's pinpoint the array under each category and 
+      //use reduce to rearrange the data in a way that
+      //they will be organized by the item.name
+      let categories = data[categoryKeys]
+      arr = categories.reduce((acc, cur) => {
+        acc[cur.name] = cur;
+        return acc;
+        //leave it as an obj instead of arr because idk how to
+        //save arrays in localstorage
+      }, {})
+
+      //after reorganizing let's send each category's data to local storage
+      //localstorage only accepts strings so stringify that object!
+      localStorage.setItem(categoryKeys, JSON.stringify(arr))
+
+    } else {
+
+      //same thing as above but we have to go down a level to access 
+      //creatures' sub-categories
+      const foodKeys = data[categoryKeys]
+      for(const key in foodKeys){
+        const foodCategories = foodKeys[key]
+        arr = foodCategories.reduce((acc, cur) => {
+        acc[cur.name] = cur;
+        return acc;
+      }, {})
+
+      localStorage.setItem(key, JSON.stringify(arr))
+
+      }
+    }
+  }
+}
+
+async function getCachedData(){
+  const ITEMS_CATEGORIES = ['food', 'non_food', 'treasure', 'materials', 'equipment', 'monsters']
+
+  let ALL_ITEMS = []
+
+
+
+  for(let i = 0; i< ITEMS_CATEGORIES.length; i++){
+    const currCategory = localStorage.getItem(ITEMS_CATEGORIES[i])
+  }
+}
+
+getCachedData()
+fetchAllData(url)
+
 
 searchbar.addEventListener('keydown', e =>{
   if (e.keyCode == 13) {
