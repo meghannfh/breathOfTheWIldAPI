@@ -3,6 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;500;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/normalizeReset.css">
         <link rel="stylesheet" href="/css/style.css">
       <title>Encyclopedia of Hyrule</title>
@@ -11,101 +14,100 @@
     <body>
     <!-- TITLE FOR THE PAGE -->
     <header class="headerContain">
-        <section class="titleContainer">
-            <h2>The <span class="encyclopedia">Encyclopedia</span></h2>
-            <h2>of <span class="hyrule">Hyrule</span></h2>
-        </section>
-
+            <h1>The <span class="encyclopedia">Encyclopedia</span> of <span class="hyrule">Hyrule</span></h1>
     </header>
     
-        <main>
+    <main>
 
-            <section>
-                  <!--
-                AUTOCOMPLETE FORM
-                TO BE COMPLETED AFTER APP IS FUNCTIONAL WITH BASICS
-            -->
-            <!--Make sure the form has the autocomplete function switched off:-->
+        <section>
+        <!--Make sure the form has the autocomplete function switched off:-->
             <form autocomplete="off">
                 <div class="autocomplete">
                     <input id="myInput" type="text" placeholder="Search . . .">
                 </div>
                 <button type="button" id="submit">Search</button>
             </form>
-            </section>
+        </section>
                 
-                <!-- IMAGE BOXES FOR MEDIA -->
 
-            <section class="inputContainer btnContainer" id="btnContainer">
+        <section class="inputContainer btnContainer" id="btnContainer">
             <!-- CATEGORY BUTTONS-->
-            <h3 class="catButton creaturesFoodBtn">
+            <button class="catButton creaturesFoodBtn" aria-label="food creatures" id="food">
                 <p class="hoverTxt">food creatures</p>
-                <!--<i class="fa-solid fa-crow"></i>-->
-                <img class="buttonImg" id="creaturesFood" src="/assets/icons/creaturesFood.png">
-            </h3>
-            <h3 class="catButton creaturesNonFoodBtn">
+                <i class="fa-solid fa-crow"></i>
+            </button>
+            <button class="catButton creaturesNonFoodBtn" aria-label="non-food creatures" id="non_food">
                 <p class="hoverTxt">creatures</p>
-                <!-- <i class="fa-solid fa-horse"></i>-->
-                <img class="buttonImg" id="creaturesNonFood" src="/assets/icons/creatures.png">
-            </h3>
-            <h3 class="catButton equipmentBtn">
+                <i class="fa-solid fa-horse-head"></i>
+            </button>
+            <button class="catButton creaturesNonFoodBtn" aria-label="equipment" id="equipment">
                 <p class="hoverTxt">equipment</p>
-                <img class="buttonImg" id="equipment" src="/assets/icons/equipment.jpg">
-            </h3>
-            <h3 class="catButton materialsBtn">
+                <i class="fa-solid fa-shield-halved"></i>
+            </button>
+            <button class="catButton materialsBtn" aria-label="materials" id="materials">
                 <p class="hoverTxt">materials</p>
-                <!-- <i class="fa-solid fa-apple-whole"></i>-->
-                <img class="buttonImg" id="materials" src="/assets/icons/materials.jpg">
-            </h3>
-            <h3 class="catButton monstersBtn">
+                <i class="fa-solid fa-toolbox"></i>
+            </button>
+            <button class="catButton monstersBtn" aria-label="monsters" id="monsters">
                 <p class="hoverTxt">monsters</p>
-                <!--<i class="fa-solid fa-skull"></i>-->
-                <img class="buttonImg" id="monsters" src="/assets/icons/monsters.png">
-            </h3>
-            <h3 class="catButton treasureBtn">
+                <i class="fa-solid fa-skull"></i>
+            </button>
+            <button class="catButton treasureBtn" aria-label="treasure" id="treasure">
                 <p class="hoverTxt">treasure</p>
-                <img class="buttonImg" id="treasure" src="/assets/icons/treasure.png">
-            </h3>
-            
-            </section>
+                <i class="fa-regular fa-gem"></i>
+            </button>
+        
+        </section>
 
 
-            <section class="container" id="infoContainer">
+        <section class="container" id="infoContainer">
                
-                <div class="imgContainer arrowContainer">
-                    <i id="arrowLeft" class="arrows fa-solid fa-chevron-left hidden"></i>
-                    <div class="imgBorder">
-                        <img id="image" class="searchedImg" src="/assets/menuBG.png" alt="">
-                    <!-- LET'S ADD THIS TO THE HEADER SOMEWHERE OR OUT OF THE MAIN CONTAINER BODY -->
-                    <!-- <h3 class="randomBtn" id="randomBtn">Random Shuffle!</h3> -->
-                    </div>
-                    <i id="arrowRight" class="arrows fa-solid fa-chevron-right hidden"></i>
+            <div class="imgContainer arrowContainer">
+                <i id="arrowLeft" class="arrows fa-solid fa-chevron-left hidden" alt="arrow to go to the next item"></i>
+                <div class="imgBorder">
+                    <img id="image" class="searchedImg" src="/assets/menuBG.webp" alt="">
                 </div>
+                <i id="arrowRight" class="arrows fa-solid fa-chevron-right hidden" alt="'arrow to go back to previous item"></i>
+            </div>
                     
                 <!-- TEXT BOXES FOR DESCRIPTION -->
-                <section class="informationOuter">
+            <section class="informationOuter">
 
-                    <section class="informationInner">
-
-                        <section class="infoTitle" id="itemName">
-                            Item/Creature Name
-
-                        </section>
-                        <section class="infoBody" id="itemDescription">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum nulla, atque consequuntur aut nam dicta?
-                        </section>
-                        
+                <section class="informationInner">
+                    <section class="infoTitle" id="itemName">
+                        <h3>Item/Creature Name</h3>
                     </section>
+                    <section class="infoBody" id="itemDescription">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum nulla, atque consequuntur aut nam dicta?</p>
+                    </section>
+                    
                 </section>
+            </section>
         </section>
     </main>
     <footer>
-        <h1 class="dot">.</h1>
-        <p class="footerTxt">Made with blood, sweat and tears by <a href="https://twitter.com/doanaminh">Minh</a> and <a href="https://twitter.com/megfdev">Meghann</a></p>
+        <a href="https://github.com/meghannfh/breathOfTheWIldAPI" target="_blank"><button>
+            <p class="footerTxt">code</p>
+            <i class="fa-brands fa-github footer-icon"></i>
+        </button></a>
+        <a href="https://github.com/doanaminh/breathOfTheWIldAPI/issues" target="_blank"><button>
+            <p class="footerTxt">report an issue</p>
+        </button></a>
     </footer>
     <div class="bg-overlay"></div>
+    <section class="welcome-message" id="welcome-message">
+        <div class="animated animatedFadeInUp fadeInUp">
+        <h1>Welcome to The Encyclopedia of Hyrule</h1>
+        <p>To start using this encyclopedia begin typing in the search bar. Items stored in the encyclopedia that start with the same letter/letters you have typed will populate in a list below the search bar for you to choose from.
+        </p>
+        <p>Alternatively, you can loop through each category(food creatures, non-food creatures, weapons, materials, and treasure) alphabetically by first clicking a category icon.
+        After clicking, the first item's image and information will appear and from there you can use the right or left arrow to loop either backwards or forwards through the list to show the next item.
+        </p>
+        <button id="welcome-message-btn">close</button>
+        </div>
+    </section>
     
-        <script src="https://kit.fontawesome.com/3bfd3ce9e5.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="/js/main.js"></script>
+        <script defer src="https://kit.fontawesome.com/3bfd3ce9e5.js" crossorigin="anonymous"></script>
     </body>
 </html>
