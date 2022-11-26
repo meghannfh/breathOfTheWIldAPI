@@ -142,6 +142,9 @@ autocomplete(document.getElementById("myInput"), allItems);
 
 
 // FETCH API INFORMATION FOR ICONS AND ARROWS(ARRAYS) =================================================================================================
+//instead of using this to fetch on btn click (takes too long) we'll fetch everything on pageload
+//and place in localstorage then pull from there
+//replace this whole function to simply set the correct information on click
 const fetchArray = (btnCategory) => {
   // console.log(event.target.id);
   categoryType = btnCategory
@@ -237,7 +240,8 @@ const fetchArray = (btnCategory) => {
 
 }
 
-//grab category id from each btn clicked, display both left and right arrow
+//grab category id from each btn clicked
+//display both left and right arrow
 //clear input
 catButtons.forEach(btn => btn.addEventListener('click', (e)=>{
   let id = e.target.parentElement.id
@@ -352,6 +356,9 @@ async function cacheToLocalStorage(data){
   }
 }
 
+//the plan is to get the cached data
+//and rearrange it in the form we need
+//and on catBtn click we simply set the data
 async function getCachedData(){
   const ITEMS_CATEGORIES = ['food', 'non_food', 'treasure', 'materials', 'equipment', 'monsters']
 
