@@ -47,7 +47,6 @@ Welcome Message on PageLoad
 */
 
 .welcome-message{
-    display: none;
     top: 0;
     left: 0;
     position: absolute;
@@ -56,6 +55,7 @@ Welcome Message on PageLoad
     z-index: 10;
     backdrop-filter: blur(5px);
 }
+
 
 .welcome-message div {
     margin: 3rem .5rem .5rem .5rem;
@@ -518,6 +518,11 @@ Media Queries
 }
 
 @media screen and (min-width: 768px) {
+    .welcome-message{
+        display: grid;
+        place-content: center;
+        height: 100vh;
+    }
     .welcome-message div {
         width: 500px;
     }
