@@ -148,60 +148,7 @@ autocomplete(document.getElementById("myInput"), allItems);
 const fetchArray = (btnCategory) => {
   // console.log(event.target.id);
   categoryType = btnCategory
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      searchbar.value = ''
-
-      // probably can delete this
-      // // TURNING ARRAY INTO NAME-BASED ARRAY OF FOOD ITEMS
-      // const foodNumbers = data.data.creatures.food;
-      // let foodNames = foodNumbers.reduce((acc, cur) => {
-      //   acc[cur.name] = cur;
-      //   return acc;
-      // }, {});
-      // foodNames = Object.entries(foodNames).sort()
-      
-
-      // // TURNING ARRAY INTO NAME-BASED ARRAY OF NON-FOOD ITEMS
-      // const nonfoodNumbers = data.data.creatures.non_food;
-      // let nonfoodNames = nonfoodNumbers.reduce((acc, cur) => {
-      //   acc[cur.name] = cur;
-      //   return acc;
-      // }, []);
-      // nonfoodNames = Object.entries(nonfoodNames).sort()
-
-      // // TURNING ARRAY INTO NAME-BASED ARRAY OF EQUIPMENT ITEMS
-      // const equipmentNumbers = data.data.equipment
-      // let equipmentNames = equipmentNumbers.reduce((acc, cur) => {
-      //   acc[cur.name] = cur;
-      //   return acc;
-      // }, [])
-      // equipmentNames = Object.entries(equipmentNames).sort()
-
-      // //TURNING ARRAY INTO NAME-BASED ARRAY OF MATERIAL ITEMS
-      // const materialNumbers = data.data.materials
-      // let materialNames = materialNumbers.reduce((acc, cur) => {
-      //   acc[cur.name] = cur;
-      //   return acc;
-      // }, [])
-      // materialNames = Object.entries(materialNames).sort()
-    
-      // //TURNING ARRAY INTO NAME-BASED ARRAY OF MONSTERS ITEMS
-      // const monsterNumbers = data.data.monsters
-      // let monsterNames = monsterNumbers.reduce((acc, cur)=> {
-      //   acc[cur.name] = cur;
-      //   return acc;
-      // }, [])
-      // monsterNames = Object.entries(monsterNames).sort()
-
-      // //TURNING ARRAY INTO NAME-BASED ARRAY OF TREASURE ITEMS
-      // const treasureNumbers = data.data.treasure
-      // let treasureNames = treasureNumbers.reduce((acc, cur) => {
-      //   acc[cur.name] = cur;
-      //   return acc;
-      // }, [])
-      // treasureNames = Object.entries(treasureNames).sort()
+  searchbar.value = ''
     
     switch (categoryType){
       case 'food':
@@ -228,44 +175,12 @@ const fetchArray = (btnCategory) => {
         currentArr = JSON.parse(window.localStorage.getItem('treasure'));
         setFirstData(currentArr);
         break;
-    }
-
-    // old code to set array can delete
-    // switch (categoryType){
-    //   case 'food':
-    //     setFirstData(foodNames);
-    //     currentArr = foodNames;
-    //     break;
-    //   case 'non_food':
-    //     setFirstData(nonfoodNames);
-    //     currentArr = nonfoodNames;
-    //     break;
-    //   case 'equipment':
-    //     setFirstData(equipmentNames);
-    //     currentArr = equipmentNames;
-    //     break;
-    //   case 'materials':
-    //     setFirstData(materialNames);
-    //     currentArr = materialNames;
-    //     break;
-    //   case 'monsters':
-    //     setFirstData(monsterNames);
-    //     currentArr = monsterNames;
-    //     break;
-    //   case 'treasure':
-    //     setFirstData(treasureNames);
-    //     currentArr = treasureNames;
-    //     break;
-    // }
+    } 
 
     // TURNS TEXT BACK INTO READABLE ENGLISH
     infoText.style.fontFamily = 'Hind, sans-serif';
 
     return categoryType;
-
-})
-  .catch(err=>console.error(err))
-
 }
 
 //grab category id from each btn clicked
@@ -281,13 +196,6 @@ catButtons.forEach(btn => btn.addEventListener('click', (e)=>{
   document.querySelector('#arrowRight').style.visibility = 'visible';
   document.querySelector('#myInput').value = '';
 }))
-
-// const setFirstData = arr => {
-//   imgContainer.src = arr[0][1].image;
-//   itemName.innerText = arr[0][1].name;
-//   itemDescription.innerText = arr[0][1].description;
-//   imgContainer.alt = `an image of ${arr[0][1].name}`
-// }
 
 // changing the code to work with objects instead of arrays
 const setFirstData = arr => {
@@ -409,22 +317,6 @@ async function cacheToLocalStorage(data){
   }
 }
 
-//the plan is to get the cached data
-//and rearrange it in the form we need
-//and on catBtn click we simply set the data
-async function getCachedData(){
-  const ITEMS_CATEGORIES = ['food', 'non_food', 'treasure', 'materials', 'equipment', 'monsters']
-
-  let ALL_ITEMS = []
-
-
-
-  for(let i = 0; i< ITEMS_CATEGORIES.length; i++){
-    const currCategory = localStorage.getItem(ITEMS_CATEGORIES[i])
-  }
-}
-
-getCachedData()
 fetchAllData(url)
 
 // searchbar interactions
