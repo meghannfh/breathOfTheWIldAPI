@@ -153,82 +153,110 @@ const fetchArray = (btnCategory) => {
     .then(data => {
       searchbar.value = ''
 
-      // TURNING ARRAY INTO NAME-BASED ARRAY OF FOOD ITEMS
-      const foodNumbers = data.data.creatures.food;
-      let foodNames = foodNumbers.reduce((acc, cur) => {
-        acc[cur.name] = cur;
-        return acc;
-      }, {});
-      foodNames = Object.entries(foodNames).sort()
-      console.log(foodNames)
+      // probably can delete this
+      // // TURNING ARRAY INTO NAME-BASED ARRAY OF FOOD ITEMS
+      // const foodNumbers = data.data.creatures.food;
+      // let foodNames = foodNumbers.reduce((acc, cur) => {
+      //   acc[cur.name] = cur;
+      //   return acc;
+      // }, {});
+      // foodNames = Object.entries(foodNames).sort()
       
 
-      // TURNING ARRAY INTO NAME-BASED ARRAY OF NON-FOOD ITEMS
-      const nonfoodNumbers = data.data.creatures.non_food;
-      let nonfoodNames = nonfoodNumbers.reduce((acc, cur) => {
-        acc[cur.name] = cur;
-        return acc;
-      }, []);
-      nonfoodNames = Object.entries(nonfoodNames).sort()
+      // // TURNING ARRAY INTO NAME-BASED ARRAY OF NON-FOOD ITEMS
+      // const nonfoodNumbers = data.data.creatures.non_food;
+      // let nonfoodNames = nonfoodNumbers.reduce((acc, cur) => {
+      //   acc[cur.name] = cur;
+      //   return acc;
+      // }, []);
+      // nonfoodNames = Object.entries(nonfoodNames).sort()
 
-      // TURNING ARRAY INTO NAME-BASED ARRAY OF EQUIPMENT ITEMS
-      const equipmentNumbers = data.data.equipment
-      let equipmentNames = equipmentNumbers.reduce((acc, cur) => {
-        acc[cur.name] = cur;
-        return acc;
-      }, [])
-      equipmentNames = Object.entries(equipmentNames).sort()
+      // // TURNING ARRAY INTO NAME-BASED ARRAY OF EQUIPMENT ITEMS
+      // const equipmentNumbers = data.data.equipment
+      // let equipmentNames = equipmentNumbers.reduce((acc, cur) => {
+      //   acc[cur.name] = cur;
+      //   return acc;
+      // }, [])
+      // equipmentNames = Object.entries(equipmentNames).sort()
 
-      //TURNING ARRAY INTO NAME-BASED ARRAY OF MATERIAL ITEMS
-      const materialNumbers = data.data.materials
-      let materialNames = materialNumbers.reduce((acc, cur) => {
-        acc[cur.name] = cur;
-        return acc;
-      }, [])
-      materialNames = Object.entries(materialNames).sort()
+      // //TURNING ARRAY INTO NAME-BASED ARRAY OF MATERIAL ITEMS
+      // const materialNumbers = data.data.materials
+      // let materialNames = materialNumbers.reduce((acc, cur) => {
+      //   acc[cur.name] = cur;
+      //   return acc;
+      // }, [])
+      // materialNames = Object.entries(materialNames).sort()
     
-      //TURNING ARRAY INTO NAME-BASED ARRAY OF MONSTERS ITEMS
-      const monsterNumbers = data.data.monsters
-      let monsterNames = monsterNumbers.reduce((acc, cur)=> {
-        acc[cur.name] = cur;
-        return acc;
-      }, [])
-      monsterNames = Object.entries(monsterNames).sort()
+      // //TURNING ARRAY INTO NAME-BASED ARRAY OF MONSTERS ITEMS
+      // const monsterNumbers = data.data.monsters
+      // let monsterNames = monsterNumbers.reduce((acc, cur)=> {
+      //   acc[cur.name] = cur;
+      //   return acc;
+      // }, [])
+      // monsterNames = Object.entries(monsterNames).sort()
 
-      //TURNING ARRAY INTO NAME-BASED ARRAY OF TREASURE ITEMS
-      const treasureNumbers = data.data.treasure
-      let treasureNames = treasureNumbers.reduce((acc, cur) => {
-        acc[cur.name] = cur;
-        return acc;
-      }, [])
-      treasureNames = Object.entries(treasureNames).sort()
+      // //TURNING ARRAY INTO NAME-BASED ARRAY OF TREASURE ITEMS
+      // const treasureNumbers = data.data.treasure
+      // let treasureNames = treasureNumbers.reduce((acc, cur) => {
+      //   acc[cur.name] = cur;
+      //   return acc;
+      // }, [])
+      // treasureNames = Object.entries(treasureNames).sort()
     
     switch (categoryType){
       case 'food':
-        setFirstData(foodNames);
-        currentArr = foodNames;
+        currentArr = JSON.parse(window.localStorage.getItem('food'));
+        setFirstData(currentArr);
         break;
       case 'non_food':
-        setFirstData(nonfoodNames);
-        currentArr = nonfoodNames;
+        currentArr = JSON.parse(window.localStorage.getItem('non_food'));
+        setFirstData(currentArr);
         break;
       case 'equipment':
-        setFirstData(equipmentNames);
-        currentArr = equipmentNames;
+        currentArr = JSON.parse(window.localStorage.getItem('equipment'));
+        setFirstData(currentArr);
         break;
       case 'materials':
-        setFirstData(materialNames);
-        currentArr = materialNames;
+        currentArr = JSON.parse(window.localStorage.getItem('materials'));
+        setFirstData(currentArr);
         break;
       case 'monsters':
-        setFirstData(monsterNames);
-        currentArr = monsterNames;
+        currentArr = JSON.parse(window.localStorage.getItem('monsters'));
+        setFirstData(currentArr);
         break;
       case 'treasure':
-        setFirstData(treasureNames);
-        currentArr = treasureNames;
+        currentArr = JSON.parse(window.localStorage.getItem('treasure'));
+        setFirstData(currentArr);
         break;
     }
+
+    // old code to set array can delete
+    // switch (categoryType){
+    //   case 'food':
+    //     setFirstData(foodNames);
+    //     currentArr = foodNames;
+    //     break;
+    //   case 'non_food':
+    //     setFirstData(nonfoodNames);
+    //     currentArr = nonfoodNames;
+    //     break;
+    //   case 'equipment':
+    //     setFirstData(equipmentNames);
+    //     currentArr = equipmentNames;
+    //     break;
+    //   case 'materials':
+    //     setFirstData(materialNames);
+    //     currentArr = materialNames;
+    //     break;
+    //   case 'monsters':
+    //     setFirstData(monsterNames);
+    //     currentArr = monsterNames;
+    //     break;
+    //   case 'treasure':
+    //     setFirstData(treasureNames);
+    //     currentArr = treasureNames;
+    //     break;
+    // }
 
     // TURNS TEXT BACK INTO READABLE ENGLISH
     infoText.style.fontFamily = 'Hind, sans-serif';
@@ -254,35 +282,47 @@ catButtons.forEach(btn => btn.addEventListener('click', (e)=>{
   document.querySelector('#myInput').value = '';
 }))
 
+// const setFirstData = arr => {
+//   imgContainer.src = arr[0][1].image;
+//   itemName.innerText = arr[0][1].name;
+//   itemDescription.innerText = arr[0][1].description;
+//   imgContainer.alt = `an image of ${arr[0][1].name}`
+// }
+
+// changing the code to work with objects instead of arrays
 const setFirstData = arr => {
-  imgContainer.src = arr[0][1].image;
-  itemName.innerText = arr[0][1].name;
-  itemDescription.innerText = arr[0][1].description;
-  imgContainer.alt = `an image of ${arr[0][1].name}`
+  const firstKey = Object.keys(arr)[0];
+  imgContainer.src = arr[firstKey].image;
+  itemName.innerText = arr[firstKey].name;
+  itemDescription.innerText = arr[firstKey].description;
+  imgContainer.alt = `an image of ${arr[firstKey].name}`
 }
 
 
 // CREATE A CONDITIONAL WHERE COUNT CANNOT BE LESS THAN 0
+// changed array methods to objects'
 const loopThruArray1 = arr => {
+  const arrLength = Object.keys(arr).length;
   if(arrowDirection === 'arrowRight'){
-    count = (count+1)%(arr.length);
-    imgContainer.src = arr[count][1].image;
-    itemName.innerText = arr[count][1].name;
-    itemDescription.innerText = arr[count][1].description;
-    imgContainer.alt = `an image of ${arr[count][1].name}`
-    if(count === arr.length){
+    count = (count+1)%(arrLength);
+    const curKey = Object.keys(arr)[count];
+    imgContainer.src = arr[curKey].image;
+    itemName.innerText = arr[curKey].name;
+    itemDescription.innerText = arr[curKey].description;
+    imgContainer.alt = `an image of ${arr[curKey].name}`
+    if(count === arrLength){
       count = 0
     }
   }else if(arrowDirection === 'arrowLeft'){
     if(count === 0){
-      count = arr.length
+      count = arrLength
     }
-    console.log(count)
-    count = (count-1)%(arr.length);
-    imgContainer.src = arr[count][1].image;
-    itemName.innerText = arr[count][1].name;
-    itemDescription.innerText = arr[count][1].description;
-    imgContainer.alt = `an image of ${arr[count][1].name}`
+    count = (count-1)%(arrLength);
+    const curKey = Object.keys(arr)[count];
+    imgContainer.src = arr[curKey].image;
+    itemName.innerText = arr[curKey].name;
+    itemDescription.innerText = arr[curKey].description;
+    imgContainer.alt = `an image of ${arr[curKey].name}`
   };
 }
 
@@ -306,6 +346,7 @@ async function fetchAllData(url) {
   //Get rid of the outside {} and send the information we need
   const itemsData = data.data
 
+  console.log('done caching')
   //sending the info to be rearragned and then cached
   cacheToLocalStorage(itemsData)
 }
@@ -330,7 +371,13 @@ async function cacheToLocalStorage(data){
         acc[cur.name] = cur;
         return acc;
         //leave it as an obj instead of arr because idk how to
-        //save arrays in localstorage
+        //save arrays in localstorage xD
+      }, {})
+
+      // let's sort the category objects in alphabetical order
+      arr = Object.keys(arr).sort().reduce((acc, cur) => {
+        acc[cur] = arr[cur];
+        return acc;
       }, {})
 
       //after reorganizing let's send each category's data to local storage
@@ -346,6 +393,12 @@ async function cacheToLocalStorage(data){
         const foodCategories = foodKeys[key]
         arr = foodCategories.reduce((acc, cur) => {
         acc[cur.name] = cur;
+        return acc;
+      }, {})
+
+      // let's also sort the creature object alphabetically here
+      arr = Object.keys(arr).sort().reduce((acc, cur) => {
+        acc[cur] = arr[cur];
         return acc;
       }, {})
 
@@ -374,7 +427,7 @@ async function getCachedData(){
 getCachedData()
 fetchAllData(url)
 
-
+// searchbar interactions
 searchbar.addEventListener('keydown', e =>{
   if (e.keyCode == 13) {
     searchButton.click();
