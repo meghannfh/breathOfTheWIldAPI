@@ -11,11 +11,6 @@ const rightArrow = document.getElementById('arrowRight');
 const leftArrow = document.getElementById('arrowLeft');
 const welcomeBtn = document.getElementById('welcome-message-btn')
 
-welcomeBtn.addEventListener('click', () => {
-  const welcomeMsg = document.getElementById('welcome-message')
-  welcomeMsg.classList.add('close-welcome-message')
-})
-
 
 let arrowDirection = '';
 let searchValue ='';
