@@ -265,6 +265,7 @@ async function cacheToLocalStorage(data){
   //access the bits we want and each time assign them 
   //to arr
   let arr;
+  const completeObj = {};
 
   //loop through each not-creatures key
   //creatures has sub-categories that we have to deal with later
@@ -288,6 +289,11 @@ async function cacheToLocalStorage(data){
         return acc;
       }, {})
 
+      // adding the keys to completeObj
+      for (key in arr) {
+        completeObj[key] = arr[key];
+      }
+
       //after reorganizing let's send each category's data to local storage
       //localstorage only accepts strings so stringify that object!
       localStorage.setItem(categoryKeys, JSON.stringify(arr))
@@ -310,11 +316,18 @@ async function cacheToLocalStorage(data){
         return acc;
       }, {})
 
+      // adding keys to the completeObj
+      for (item in arr) {
+        completeObj[item] = arr[item];
+      }
+
       localStorage.setItem(key, JSON.stringify(arr))
 
       }
     }
   }
+  localStorage.setItem('all', JSON.stringify(completeObj))
+  console.log(completeObj, Object.keys(completeObj).length)
 }
 
 fetchAllData(url)
@@ -335,17 +348,12 @@ searchButton.addEventListener('click', async _ => {
 });
 
 const searchFetch = async _ => {
-  let searchValue = document.querySelector('#myInput').value;
-  searchValue = searchValue.split(' ');
-  searchValue = searchValue.join('_');
+  const searchValue = document.querySelector('#myInput').value.toLowerCase().split('').join('');
+  const searchItem = JSON.parse(window.localStorage.getItem('all'))[searchValue];
 
-  const res = await fetch(`https://botw-compendium.herokuapp.com/api/v2/entry/${searchValue}`);
-  const json = await res.json();
-  const data = json.data;
-
-  if (Object.keys(data).length > 0) {
-    itemName.innerText = data.name;
-    itemDescription.innerText = data.description;
-    imgContainer.src = data.image;
+  if (Object.keys(searchItem).length > 0) {
+    itemName.innerText = searchItem.name;
+    itemDescription.innerText = searchItem.description;
+    imgContainer.src = searchItem.image;
   }
 }
